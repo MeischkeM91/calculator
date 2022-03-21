@@ -10,6 +10,7 @@ const topDisplay = document.querySelector('.top-display');
 
 let input1 = '';
 let input2 = '';
+let oper = '';
 let newInput = '';
 
 // Add number clicked to input on bottom
@@ -30,17 +31,15 @@ const displayInputBtm = (num) => {
 // Display the previous input and operation called when selected.
 operationButtons.forEach(button =>{
     button.addEventListener('click', ()=>{
-        updateTopDisplay(input1, button.textContent);
+        oper = button.textContent;
+        updateTopDisplay(input1, oper);
     });
 });
 
-const updateTopDisplay = (btmDisp, oper) =>{
-    topDisplay.textContent= `${btmDisp}  ${oper}`;
-    bottomDisplay.textContent='';
-    input1 = '';
+const updateTopDisplay = (btmDisp, op) =>{
+    topDisplay.textContent= `${btmDisp}  ${op}`;
+    bottomDisplay.textContent='0';
 };
-
-
 
 // Functions for math operations
 const add = function(x, y){
@@ -57,8 +56,8 @@ const divide = function(x, y){
 }
 
 // Operate function will take 2 numbers and operand to call the correct math function
-const operate =function(num1,num2,oper){
-    let operand=oper;
+const operate =function(num1,num2,op){
+    let operand=op;
     switch(operand){
         case '+':
             return add(num1,num2);
@@ -76,8 +75,26 @@ const operate =function(num1,num2,oper){
             console.log('::INVALID OPERAND::')
     }
 }
-//test operate
-console.log(operate(20,4,'/'));
+
+// Clear display and input
+clearButton.addEventListener('click', ()=>{
+    input1='';
+    input2='';
+    oper='';
+    topDisplay.textContent='0';
+    bottomDisplay.textContent='0';
+})
+
+// Make the calculation
+/* const makeCalculation = (in1,in2,op)=>{
+    input2 = bottomDisplay.textContent;
+    bottomDisplay.textContent=operate(parseFloat(input1),parseFloat(input2),oper);
+    input1='';
+}
+operateButton.addEventListener('click',()=>{
+    makeCalculation(input1,input2,oper);
+}); */
+
 
 
 
