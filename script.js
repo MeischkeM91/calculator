@@ -1,3 +1,33 @@
+const numberButtons = document.querySelectorAll('.numBtn');
+const operationButtons = document.querySelectorAll('.operBtn');
+const clearButton = document.querySelector('.clearBtn');
+const deleteButton = document.querySelector('.deleteBtn');
+const signButton = document.querySelector('.signBtn');
+const operateButton = document.querySelector('.operateBtn');
+
+const bottomDisplay = document.querySelector('.btm-display');
+
+
+let input1 = 0;
+let input2 = 0;
+let newInput = '';
+
+// Add number clicked to input 1
+numberButtons.forEach(button => {
+    button.addEventListener('click', ()=> {
+        displayInput1(button.textContent);
+    });
+});
+
+
+const displayInput1 = (num) => {
+    newInput = newInput.toString() + num.toString();
+    bottomDisplay.textContent=newInput;
+    return newInput;
+};
+
+
+
 // Functions for math operations
 const add = function(x, y){
     return x+y;
@@ -35,7 +65,5 @@ const operate =function(num1,num2,oper){
 //test operate
 console.log(operate(20,4,'/'));
 
-// Reference wrapper/containers
-const calcWrapper = document.querySelector('.calc-wrapper');
-const display = document.querySelector('.display');
-const btnContainer = document.querySelector('.btn-container');
+
+
