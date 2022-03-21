@@ -6,26 +6,38 @@ const signButton = document.querySelector('.signBtn');
 const operateButton = document.querySelector('.operateBtn');
 
 const bottomDisplay = document.querySelector('.btm-display');
-
+const topDisplay = document.querySelector('.top-display');
 
 let input1 = '';
 let input2 = '';
 let newInput = '';
 
-// Add number clicked to input 1
+// Add number clicked to input on bottom
 numberButtons.forEach(button => {
     button.addEventListener('click', ()=> {
-        displayInput1(button.textContent);
+        displayInputBtm(button.textContent);
     });
 });
 
-
-const displayInput1 = (num) => {
+const displayInputBtm = (num) => {
     if(input1.length==13){return;};
     if(num ==='.' && input1.includes('.')){return;};
     input1 = input1.toString() + num.toString();
     bottomDisplay.textContent=input1;
     return input1;
+};
+
+// Display the previous input and operation called when selected.
+operationButtons.forEach(button =>{
+    button.addEventListener('click', ()=>{
+        updateTopDisplay(input1, button.textContent);
+    });
+});
+
+const updateTopDisplay = (btmDisp, oper) =>{
+    topDisplay.textContent= `${btmDisp}  ${oper}`;
+    bottomDisplay.textContent='';
+    input1 = '';
 };
 
 
