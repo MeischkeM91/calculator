@@ -8,8 +8,8 @@ const operateButton = document.querySelector('.operateBtn');
 const bottomDisplay = document.querySelector('.btm-display');
 
 
-let input1 = 0;
-let input2 = 0;
+let input1 = '';
+let input2 = '';
 let newInput = '';
 
 // Add number clicked to input 1
@@ -21,9 +21,11 @@ numberButtons.forEach(button => {
 
 
 const displayInput1 = (num) => {
-    newInput = newInput.toString() + num.toString();
-    bottomDisplay.textContent=newInput;
-    return newInput;
+    if(input1.length==13){return;};
+    if(num ==='.' && input1.includes('.')){return;};
+    input1 = input1.toString() + num.toString();
+    bottomDisplay.textContent=input1;
+    return input1;
 };
 
 
