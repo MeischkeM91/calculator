@@ -11,7 +11,7 @@ const topDisplay = document.querySelector('.top-display');
 let input1 = '';
 let input2 = '';
 let oper = '';
-let newInput = '';
+let inputHold = '';
 
 // Add number clicked to input on bottom
 numberButtons.forEach(button => {
@@ -31,6 +31,7 @@ const displayInputBtm = (num) => {
 // Display the previous input and operation called when selected.
 operationButtons.forEach(button =>{
     button.addEventListener('click', ()=>{
+        inputHold=input1;
         oper = button.textContent;
         updateTopDisplay(input1, oper);
     });
@@ -39,6 +40,7 @@ operationButtons.forEach(button =>{
 const updateTopDisplay = (btmDisp, op) =>{
     topDisplay.textContent= `${btmDisp}  ${op}`;
     bottomDisplay.textContent='0';
+    input1='';
 };
 
 // Functions for math operations
@@ -86,14 +88,14 @@ clearButton.addEventListener('click', ()=>{
 })
 
 // Make the calculation
-/* const makeCalculation = (in1,in2,op)=>{
+const makeCalculation = ()=>{
     input2 = bottomDisplay.textContent;
-    bottomDisplay.textContent=operate(parseFloat(input1),parseFloat(input2),oper);
+    bottomDisplay.textContent=operate(parseFloat(inputHold),parseFloat(input2),oper);
     input1='';
 }
 operateButton.addEventListener('click',()=>{
-    makeCalculation(input1,input2,oper);
-}); */
+    makeCalculation();
+});
 
 
 
