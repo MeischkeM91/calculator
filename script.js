@@ -34,3 +34,8 @@ const operate =function(num1,num2,oper){
 }
 //test operate
 console.log(operate(20,4,'/'));
+
+// Reference wrapper/containers
+const calcWrapper = document.querySelector('.calc-wrapper');
+const display = document.querySelector('.display');
+const btnContainer = document.querySelector('.btn-container');
