@@ -37,6 +37,7 @@ body{
     font-size: 30px;
     padding-right: 5px;
     background-color: whitesmoke;
+    min-height: 30%;
 }
 .btm-display{
     font-size: 45px;
