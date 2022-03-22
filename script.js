@@ -104,4 +104,8 @@ deleteButton.addEventListener('click', ()=>{
     bottomDisplay.textContent=input1;
 });
 
-
+// Update inputs sign 
+signButton.addEventListener('click', ()=>{
+    input1 = `-`+bottomDisplay.textContent;
+    bottomDisplay.textContent=input1;
+})
