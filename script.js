@@ -92,11 +92,16 @@ const makeCalculation = ()=>{
     input2 = bottomDisplay.textContent;
     bottomDisplay.textContent=operate(parseFloat(inputHold),parseFloat(input2),oper);
     input1='';
+    topDisplay.textContent='0';
 }
 operateButton.addEventListener('click',()=>{
     makeCalculation();
 });
 
-
+// Delete button will delete the last character
+deleteButton.addEventListener('click', ()=>{
+    input1 = bottomDisplay.textContent.slice(0,-1);
+    bottomDisplay.textContent=input1;
+});
 
 
